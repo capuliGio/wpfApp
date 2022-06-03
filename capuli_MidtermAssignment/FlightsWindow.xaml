@@ -1,0 +1,78 @@
+﻿<Window x:Name="flightsPage" x:Class="capuli_MidtermAssignment.FlightsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:capuli_MidtermAssignment"
+        mc:Ignorable="d"
+        Title="Flights Page" Height="450" Width="1300" Closing="flightsPage_Closing">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="mnuWinInsert" Header="Insert" Click="mnuWinInsert_Click"/>
+            <MenuItem x:Name="mnuWinUpdate" Header="Update" Click="mnuWinUpdate_Click"/>
+            <MenuItem x:Name="mnuWinDelete" Header="Delete" Click="mnuWinDelete_Click"/>
+            <MenuItem x:Name="mnuWinClose" Header="Quit" Click="mnuWinClose_Click"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+
+    <Grid Background="Aqua" Margin="0,10,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="False" Margin="0,-26,0,168" Grid.ColumnSpan="2">
+            <Menu x:Name="mainmenu" Width="1300" Height="21" Grid.ColumnSpan="2">
+                <MenuItem x:Name="menuFile" Header="File">
+                    <MenuItem x:Name="menuNew" Header="_New" IsEnabled="False"/>
+                    <MenuItem x:Name="menuSave" Header="_Save" IsEnabled="False"/>
+                    <MenuItem x:Name="menuQuit" Header="E_xit" Click="menuQuit_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="menuEdit" Header="_Edit">
+                    <MenuItem x:Name="menuInsert" Header="Insert" Click="menuInsert_Click"/>
+                    <MenuItem x:Name="menuUpdate" Header="Update" Click="menuUpdate_Click"/>
+                    <MenuItem x:Name="menuDelete" Header="Delete" Click="menuDelete_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="menuHelp" Header="Help" Click="menuHelp_Click"/>
+            </Menu>
+        </DockPanel>
+
+        <StackPanel Grid.ColumnSpan="1" Grid.RowSpan="2" Margin="0,40,0,0">
+            <ListBox x:Name="lstFlights"
+                     HorizontalContentAlignment="Stretch"
+                     ItemsSource="{Binding}" 
+                     ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lstFlights_SelectionChanged" Width="568" Height="170" Margin="50,20,0,0"/>
+            <DataGrid Width="568"  Height="36" Margin="50,0,0,0"/>
+
+            <Button x:Name="btnInsert" Content="Insert" Margin="10,26,10,3" Height="30" Width="200" Click="btnInsert_Click" Cursor="Hand" Background="#FFB5C084"/>
+            <Button x:Name="btnUpdate" Content="Update" Margin="10,0,10,3" Width="200" Height="30" Click="btnUpdate_Click" Cursor="Hand" Background="#FF9BD4D3"/>
+            <Button x:Name="btnDelete" Content="Delete" Margin="10,0,10,3" Width="200" Height="30" Click="btnDelete_Click" Background="#FFFC594C" Cursor="Hand"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0" Margin="10,39,0,10">
+            <Label Content="AirlineID:" Margin="0,8,0,0" Width="60" Height="30" FontWeight="Bold"/>
+            <TextBox x:Name="tbAirlineID" Width="50" Height="30"></TextBox>
+            <Label Content="Airline Information:" Width="120" Height="30" FontWeight="Bold"/>
+            <ListBox x:Name="lstairlineID"
+                     ItemsSource="{Binding}" 
+                     ScrollViewer.HorizontalScrollBarVisibility="Visible" Width="550" Height="60"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+            <Label Content="DepartureCity:" Width="93" Height="30" Margin="2,0,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="tbDeparture" Width="70" Height="30"></TextBox>
+            <Label Content="DestinationCity:" Width="100" Height="30" FontWeight="Bold"/>
+            <TextBox x:Name="tbDestination" Width="70" Height="30"></TextBox>
+            <Label Content="DepartureDate:" Width="96" Height="30" FontWeight="Bold"/>
+            <TextBox x:Name="tbDate" Width="70" Height="30"></TextBox>
+            <Label Content="FlightTime:" Width="74" Height="30" FontWeight="Bold"/>
+            <TextBox x:Name="tbTime" Width="50" Height="30"></TextBox>
+        </StackPanel>
+
+    </Grid>
+</Window>

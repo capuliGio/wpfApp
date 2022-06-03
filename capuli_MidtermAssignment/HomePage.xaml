@@ -1,0 +1,47 @@
+﻿<Window x:Name="homePage" x:Class="capuli_MidtermAssignment.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:capuli_MidtermAssignment"
+        mc:Ignorable="d"
+        Title="HomePage" Height="270" Width="300" Closing="homePage_Closing">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="mnuWinInsert" Header="Insert" IsEnabled="False"/>
+            <MenuItem x:Name="mnuWinUpdate" Header="Update" IsEnabled="False"/>
+            <MenuItem x:Name="mnuWinDelete" Header="Delete" IsEnabled="False"/>
+            <MenuItem x:Name="mnuWinClose" Header="Quit" Click="mnuWinClose_Click"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Grid Background="Beige">
+        <DockPanel LastChildFill="False" Margin="0,0,0,208">
+            <Menu x:Name="mainmenu" Width="300
+                  ">
+                <MenuItem x:Name="menuFile" Header="File">
+                    <MenuItem x:Name="menuNew" Header="_New" IsEnabled="False"/>
+                    <MenuItem x:Name="menuSave" Header="_Save" IsEnabled="False"/>
+                    <MenuItem x:Name="menuQuit" Header="E_xit" Click="menuQuit_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="menuEdit" Header="_Edit">
+                    <MenuItem x:Name="menuInsert" Header="Insert" IsEnabled="False"/>
+                    <MenuItem x:Name="menuUpdate" Header="Update" IsEnabled="False"/>
+                    <MenuItem x:Name="menuDelete" Header="Delete" IsEnabled="False"/>
+                </MenuItem>
+                <MenuItem x:Name="menuView" Header="_View">
+                    <MenuItem x:Name="menuCustomers" Header="View _Customers" Click="menuCustomers_Click"/>
+                    <MenuItem x:Name="menuPassengers" Header="View _Passengers" Click="menuPassengers_Click"/>
+                    <MenuItem x:Name="menuAirlines" Header="View _Airlines" Click="menuAirlines_Click"/>
+                    <MenuItem x:Name="menuFlights" Header="View _Flights" Click="menuFlights_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="menuHelp" Header="Help" Click="menuHelp_Click"/>
+            </Menu>
+        </DockPanel>
+        <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+            <Button x:Name="btnCustomer" Content="View Customers" Margin="10,30,10,10" Height="30" Click="btnCustomer_Click"/>
+            <Button x:Name="btnFlights" Content="View Flights" Margin="10,0,10,10" Height="30" Click="btnFlights_Click"/>
+            <Button x:Name="btnAirlines" Content="View Airlines" Margin="10,0,10,10" Height="30" Click="btnAirlines_Click"/>
+            <Button x:Name="btnPassengers" Content="View Passengers" Margin="10,0,10,10" Height="33" Click="btnPassengers_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
